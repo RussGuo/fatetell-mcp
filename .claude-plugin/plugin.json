@@ -1,0 +1,16 @@
+{
+  "name": "fatetell",
+  "displayName": "FateTell",
+  "version": "0.1.0",
+  "description": "FateTell BaZi (Four Pillars) for Claude: deterministic charts, almanac, saved charts, Day Master judgments, daily fortune and chart calendar from the FateTell MCP server, plus a skill on how to read them.",
+  "author": { "name": "FateTell", "url": "https://fatetell.com" },
+  "homepage": "https://fatetell.com",
+  "repository": "https://github.com/RussGuo/fatetell-mcp",
+  "license": "MIT",
+  "keywords": ["bazi", "four-pillars", "chinese-astrology", "almanac", "fatetell"],
+  "icon": "./assets/icon-512.png",
+  "documentationUrl": "https://github.com/RussGuo/fatetell-mcp#readme",
+  "supportUrl": "https://github.com/RussGuo/fatetell-mcp/issues",
+  "privacyPolicyUrl": "https://fatetell.com/privacyPolicy",
+  "termsOfServiceUrl": "https://fatetell.com/terms"
+}

@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+__MACOSX/
+*.log
+.env*
+node_modules/

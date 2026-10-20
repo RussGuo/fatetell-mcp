@@ -1,0 +1,12 @@
+{
+  "name": "fatetell",
+  "owner": { "name": "FateTell", "url": "https://fatetell.com" },
+  "description": "The FateTell plugin for Claude Code: the FateTell MCP connector and a skill on reading BaZi results.",
+  "plugins": [
+    {
+      "name": "fatetell",
+      "source": "./",
+      "description": "FateTell BaZi connector and reading skill."
+    }
+  ]
+}
