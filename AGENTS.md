@@ -15,8 +15,11 @@ The repository root is a Claude plugin root. Claude Code does not load a plugin'
 .cursor-plugin/plugin.json: Cursor plugin manifest with `mcpServers` inline, which replaces Cursor's default `mcp.json` discovery so Cursor never reads the Claude `.mcp.json`; points at `https://mcp.fatetell.com/login/mcp` because Cursor (and Grok Bot) only handle a 401 during `initialize`; `logo` is the plated icon
 skills/fatetell-bazi/SKILL.md: the reading skill shared by both plugins (auto-discovered from `skills/`; neither manifest lists it, since listing replaces discovery); frontmatter only `name` and `description` (Agent Skills standard); copied verbatim from the private server repository's `plugin/` directory, which stays the source
 server.json: MCP Registry entry `com.fatetell/mcp` (schema 2025-12-11); lists only the default endpoint `/mcp`; `version` is immutable once published, bump before each publish; no `repository` field because the server source is private
-assets/icon-512.png: 512×512 transparent ink-drop mark, generated from the brand logo with Pillow; Claude `icon` and Registry `icons`
-assets/icon-plate-512.png: 512×512 mark centred on a #f3f2ef paper plate; Cursor `logo` and the Cursor form's Logotype URL ("1:1 with background plate")
+assets/icon.svg: 1024×1024 vector master of the plated icon: the designer's outline from the brand's Illustrator file (fatetell-logo-0705.pdf, page 2) on a full #F0F0F0 plate (the website's `--paper`, oklch(0.955 0 0)), 12% margin; the source grain is a bitmap, so the SVG carries a radial gradient fitted to its average shading
+assets/icon-1024.png: 1024×1024 PNG of the same plated icon, rendered from the Illustrator file with its grain
+assets/icon-512.png: 512×512 PNG of the same plated icon; Claude `icon` and Registry `icons`
+assets/icon-plate-512.png: byte-identical copy of `icon-512.png`, kept so the Cursor `logo` path and the Cursor form's Logotype URL ("1:1 with background plate") stay valid
+assets/icon-mark-512.png: 512×512 transparent ink-drop mark, same framing as the website's `logo.png`, for hosts that draw their own background
 README.md: the page directories and reviewers read: endpoints, install per client, tool table, sign-in tiers, limits, privacy, support, registry; tool names, titles and the first sentence of each description are copied verbatim from the server repository's generated `docs/tools.md`
 LICENSE: MIT, Copyright (c) 2026 FateTell; covers this repository's files only, not the service
 .gitignore: keeps `.DS_Store`, `Thumbs.db` and `__MACOSX` out (the Anthropic portal blocks plugins that contain them), plus logs and env files

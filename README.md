@@ -1,4 +1,4 @@
-<!-- Placeholders to fill before publishing: <SUPPORT_EMAIL> (proposed support@fatetell.com), <SECURITY_EMAIL> (proposed security@fatetell.com). -->
+<!-- Placeholder to fill before publishing: <SECURITY_EMAIL> (proposed security@fatetell.com). -->
 
 # FateTell MCP
 
@@ -186,7 +186,7 @@ BaZi results are for reference and are not a substitute for medical, legal or fi
 
 ## Support and security
 
-- Support: `<SUPPORT_EMAIL>`
+- Support: `contact@fatetell.com`
 - Security reports: `<SECURITY_EMAIL>`. Please report vulnerabilities privately rather than in a public issue.
 
 ## Registry
@@ -202,8 +202,11 @@ MCP Registry name: `com.fatetell/mcp`. The entry is [`server.json`](server.json)
 .cursor-plugin/plugin.json        Cursor plugin manifest, connector inline: https://mcp.fatetell.com/login/mcp
 skills/fatetell-bazi/SKILL.md     reading skill, shared by both plugins
 server.json                       MCP Registry entry
-assets/icon-512.png               icon, 512×512, transparent
-assets/icon-plate-512.png         icon, 512×512, on a paper-colored plate
+assets/icon.svg                   icon, vector, on a paper-colored plate
+assets/icon-1024.png              icon, 1024×1024, on a paper-colored plate
+assets/icon-512.png               icon, 512×512, on a paper-colored plate
+assets/icon-plate-512.png         same as icon-512.png (Cursor logo path)
+assets/icon-mark-512.png          mark only, 512×512, transparent
 ```
 
 Validate the Claude plugin with `claude plugin validate --strict .`.
