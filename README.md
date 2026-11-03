@@ -184,6 +184,16 @@ Three access tiers; each includes everything in the tiers before it.
 - **Membership is checked on every call**, not fixed at sign-in. The same membership works in the FateTell app, on the website and here; what you can do here matches what you can do in the app.
 - **Disconnecting**: FateTell website → System Settings → **Connected apps** → Disconnect. The AI loses access within a minute.
 
+## Testing the connector
+
+For anyone reviewing or trying the connector, with or without a FateTell account:
+
+1. Connect the default endpoint, `https://mcp.fatetell.com/mcp`, or let a Cursor, Grok Bot or Hermes setup use the sign-in endpoint. Any email address can sign in: a code is sent to it, and the new account is free.
+2. Without signing in (default endpoint): "Cast my BaZi chart, female, born 1 July 1990 at 10:00 in Sydney" and "What is today's day pillar?" should answer at once.
+3. Signed in on a free account: "Read my saved chart" lists and opens the charts in that account, which is empty for a new one, so create one in the FateTell app or website first, or skip to the next step.
+4. Member tools (Day Master judgment, daily fortune, chart calendar, saving a new chart) need an active membership. A review account with a membership and saved charts is available to directory and marketplace reviewers on request at `contact@fatetell.com`; it is never published in this repository.
+5. Saving a chart is the only write: ask to "save a new chart" and the tool adds one; nothing is edited or deleted. Disconnect from the FateTell website (System Settings → Connected apps) to test revocation.
+
 ## Usage limits
 
 Every tool has a usage cap. The caps exist only to prevent abuse; they are not an allowance, they are not linked to any usage count in the FateTell app, and reaching one returns only the cap and its reset time.
