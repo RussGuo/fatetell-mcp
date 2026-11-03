@@ -14,12 +14,14 @@ The repository root is a Claude plugin root. Claude Code does not load a plugin'
 .mcp.json: Claude plugin connector, `type: http` to `https://mcp.fatetell.com/mcp` (lazy sign-in: anonymous tools work, account tools answer 401); must match the URL submitted as the Claude connector so users see one set of tools; no `oauth` block, the server supports CIMD and DCR
 .cursor-plugin/plugin.json: Cursor plugin manifest with `mcpServers` inline, which replaces Cursor's default `mcp.json` discovery so Cursor never reads the Claude `.mcp.json`; points at `https://mcp.fatetell.com/login/mcp` because Cursor (and Grok Bot) only handle a 401 during `initialize`; `logo` is the plated icon
 skills/fatetell-bazi/SKILL.md: the reading skill shared by both plugins (auto-discovered from `skills/`; neither manifest lists it, since listing replaces discovery); frontmatter only `name` and `description` (Agent Skills standard); copied verbatim from the private server repository's `plugin/` directory, which stays the source
-server.json: MCP Registry entry `com.fatetell/mcp` (schema 2025-12-11); lists only the default endpoint `/mcp`; `version` is immutable once published, bump before each publish; no `repository` field because the server source is private
-assets/icon.svg: 1024×1024 vector master of the plated icon: the designer's outline from the brand's Illustrator file (fatetell-logo-0705.pdf, page 2) on a full #F0F0F0 plate (the website's `--paper`, oklch(0.955 0 0)), 12% margin; the source grain is a bitmap, so the SVG carries a radial gradient fitted to its average shading
-assets/icon-1024.png: 1024×1024 PNG of the same plated icon, rendered from the Illustrator file with its grain
-assets/icon-512.png: 512×512 PNG of the same plated icon; Claude `icon` and Registry `icons`
-assets/icon-plate-512.png: byte-identical copy of `icon-512.png`, kept so the Cursor `logo` path and the Cursor form's Logotype URL ("1:1 with background plate") stay valid
-assets/icon-mark-512.png: 512×512 transparent ink-drop mark, same framing as the website's `logo.png`, for hosts that draw their own background
+server.json: MCP Registry entry `com.fatetell/mcp` (schema 2025-12-11, published 2026-11-03 as 0.1.0); lists only the default endpoint `/mcp`; `version` is immutable once published, bump before each publish; `repository` points at this storefront repository, and the README states that the service itself is not open source
+assets/ (six image files; the Anthropic directory scanner holds for manual review any markdown that spells an image filename, so they are described here without extensions):
+- icon, SVG: 1024×1024 vector master of the plated icon: the designer's outline from the brand's Illustrator file (fatetell-logo-0705.pdf, page 2) on a full #F0F0F0 plate (the website's `--paper`, oklch(0.955 0 0)), 12% margin; the source grain is a bitmap, so the SVG carries a radial gradient fitted to its average shading
+- icon-1024, PNG: 1024×1024 render of the same plated icon from the Illustrator file with its grain; the Cursor form's Logotype URL
+- icon-512, PNG: 512×512 of the same plated icon; Registry `icons` and the Claude plugin `icon`
+- icon-plate-512, PNG: byte-identical copy of icon-512, kept so the Cursor `logo` path ("1:1 with background plate") stays valid
+- icon-mark-512, PNG: 512×512 transparent ink-drop mark, same framing as the website's logo image, for hosts that draw their own background
+- icon-512-white, PNG: the mark on a white plate with 8% margin; the Claude directory listing's custom icon, because the directory card draws its own frame and the grey plate read as a double frame
 README.md: the page directories and reviewers read: endpoints, install per client, tool table, sign-in tiers, limits, privacy, support, registry; tool names, titles and the first sentence of each description are copied verbatim from the server repository's generated `docs/tools.md`
 LICENSE: MIT, Copyright (c) 2026 FateTell; covers this repository's files only, not the service
 .gitignore: keeps `.DS_Store`, `Thumbs.db` and `__MACOSX` out (the Anthropic portal blocks plugins that contain them), plus logs and env files

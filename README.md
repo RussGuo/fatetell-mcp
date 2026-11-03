@@ -201,11 +201,7 @@ MCP Registry name: `com.fatetell/mcp`. The entry is [`server.json`](server.json)
 .cursor-plugin/plugin.json        Cursor plugin manifest, connector inline: https://mcp.fatetell.com/login/mcp
 skills/fatetell-bazi/SKILL.md     reading skill, shared by both plugins
 server.json                       MCP Registry entry
-assets/icon.svg                   icon, vector, on a paper-colored plate
-assets/icon-1024.png              icon, 1024×1024, on a paper-colored plate
-assets/icon-512.png               icon, 512×512, on a paper-colored plate
-assets/icon-plate-512.png         same as icon-512.png (Cursor logo path)
-assets/icon-mark-512.png          mark only, 512×512, transparent
+assets/                           icons: SVG master and 1024 / 512 PNG on a paper-colored plate, a 512 white-plate variant for directory tiles, and a transparent 512 mark
 ```
 
 Validate the Claude plugin with `claude plugin validate --strict .`.
