@@ -4,14 +4,14 @@ FateTell computes; your AI interprets.
 
 FateTell MCP is a hosted remote MCP server (Streamable HTTP) that returns deterministic BaZi (Four Pillars) charts, Chinese almanac data and the charts saved in a FateTell account to any MCP client. The server calls no language model: the AI you already use reads and explains the results. There is nothing to download or run.
 
-This repository holds the public metadata for that server: a plugin for Claude and Claude Code, a plugin for Cursor, the MCP Registry entry, and the `fatetell-bazi` skill on how to read FateTell results. The server itself is not in this repository.
+This repository holds the public metadata for that server: a plugin for Claude and Claude Code, a plugin for Cursor, an Agent Plugins package for Hermes Agent, the MCP Registry entry, and the `fatetell-bazi` skill on how to read FateTell results. The server itself is not in this repository.
 
 ## Endpoints
 
 | Endpoint | Behavior | Use it for |
 |---|---|---|
 | `https://mcp.fatetell.com/mcp` | Default. Connecting needs no account; chart casting and the almanac work anonymously. A tool that needs an account answers with an HTTP 401 challenge, and the client then opens FateTell's sign-in page. | Claude (web, desktop, mobile), Claude Code, Codex, VS Code, and most other clients |
-| `https://mcp.fatetell.com/login/mcp` | Sign in on connect. The first request already answers 401, so sign-in happens while the client is connecting. Every tool on this endpoint is used signed in; there is no anonymous use. | Clients that start sign-in only while connecting: Cursor, Grok Bot, Manus |
+| `https://mcp.fatetell.com/login/mcp` | Sign in on connect. The first request already answers 401, so sign-in happens while the client is connecting. Every tool on this endpoint is used signed in; there is no anonymous use. | Clients that start sign-in only while connecting: Cursor, Grok Bot, Manus, and Hermes Agent's own server entry |
 | `https://mcp.fatetell.com/chatgpt/mcp` | ChatGPT's own endpoint; the tools are identical, sign-in follows ChatGPT's app conventions. | ChatGPT only |
 
 The tools, their inputs and their results are the same on every endpoint. Sign-in uses OAuth 2.1; there is no key or token to configure in advance.
@@ -107,6 +107,35 @@ https://mcp.fatetell.com/login/mcp
 
 Leave the headers empty and choose **Save**; Manus starts sign-in while connecting.
 
+### Hermes Agent
+
+This repository is also an Agent Plugins package, which Hermes Agent installs as a plugin. The package adds the connector (`/mcp`) and the `fatetell-bazi` skill; Hermes installs it disabled, so enable it afterwards:
+
+```sh
+hermes plugins install RussGuo/fatetell-mcp --no-enable
+hermes plugins enable fatetell
+```
+
+Once FateTell is listed in the Hermes plugin catalog, `hermes plugins install fatetell` installs the same package. Chart casting and the almanac work right away. The package marks the server untrusted, so Hermes asks before any tool call that is not marked read-only; `create_saved_chart` is the only such tool.
+
+A plugin package cannot declare sign-in, so account features need a server entry of your own. Add this under `mcp_servers` in your Hermes `config.yaml`, next to any servers already there:
+
+```yaml
+mcp_servers:
+  fatetell:
+    url: https://mcp.fatetell.com/login/mcp
+    auth: oauth
+    trust: untrusted
+```
+
+Then sign in:
+
+```sh
+hermes mcp login fatetell
+```
+
+This entry replaces the package's connector of the same name, including its trust setting, which is why it repeats `trust: untrusted`. It uses the sign-in endpoint because Hermes signs in only when the server asks while connecting; on the default endpoint `hermes mcp login` finds nothing to sign in to. Hermes stores and refreshes the tokens itself.
+
 ### Other MCP clients
 
 Add a remote MCP server named `fatetell` over Streamable HTTP (often called `http`) with the default endpoint, OAuth for authentication and no key or header:
@@ -199,12 +228,14 @@ MCP Registry name: `com.fatetell/mcp`. The entry is [`server.json`](server.json)
 .claude-plugin/marketplace.json   single-plugin marketplace: this repository
 .mcp.json                         Claude plugin connector: https://mcp.fatetell.com/mcp
 .cursor-plugin/plugin.json        Cursor plugin manifest, connector inline: https://mcp.fatetell.com/login/mcp
-skills/fatetell-bazi/SKILL.md     reading skill, shared by both plugins
+plugin.json                       Agent Plugins package manifest (Hermes Agent)
+mcp.json                          Agent Plugins connector: https://mcp.fatetell.com/mcp
+skills/fatetell-bazi/SKILL.md     reading skill, shared by all three packages
 server.json                       MCP Registry entry
 assets/                           icons: SVG master and 1024 / 512 PNG on a paper-colored plate, a 512 white-plate variant for directory tiles, and a transparent 512 mark
 ```
 
-Validate the Claude plugin with `claude plugin validate --strict .`.
+Validate the Claude plugin with `claude plugin validate --strict .` and the Hermes package with `hermes plugins validate . --install-deps`.
 
 ## License
 
