@@ -3,11 +3,23 @@
   "displayName": "FateTell",
   "version": "0.1.0",
   "description": "BaZi (Four Pillars) charts, almanac, saved charts, Day Master judgments, daily fortune and chart calendar from FateTell, with a skill on reading the results. Signing in to a FateTell account is part of connecting.",
-  "author": { "name": "FateTell" },
-  "homepage": "https://fatetell.com",
+  "author": {
+    "name": "FateTell",
+    "email": "contact@fatetell.com",
+    "url": "https://fatetell.com"
+  },
+  "homepage": "https://fatetell.com/mcp",
   "repository": "https://github.com/RussGuo/fatetell-mcp",
   "license": "MIT",
-  "keywords": ["bazi", "four-pillars", "chinese-astrology", "almanac", "calendar", "fatetell", "mcp"],
+  "keywords": [
+    "bazi",
+    "four-pillars",
+    "chinese-astrology",
+    "almanac",
+    "calendar",
+    "fatetell",
+    "mcp"
+  ],
   "logo": "assets/icon-plate-512.png",
   "mcpServers": {
     "fatetell": {
