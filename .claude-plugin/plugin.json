@@ -2,7 +2,7 @@
   "name": "fatetell",
   "displayName": "FateTell",
   "version": "0.1.0",
-  "description": "FateTell BaZi (Four Pillars) for Claude: deterministic charts, almanac, saved charts, Day Master judgments, daily fortune and chart calendar from the FateTell MCP server, plus a skill on how to read them.",
+  "description": "Chinese astrology in Claude, computed by FateTell's own BaZi engine: cast a BaZi (八字, Four Pillars) chart from any birth date, open your saved charts, and check today's fortune and the almanac. Includes a skill on reading the results.",
   "author": {
     "name": "FateTell",
     "url": "https://fatetell.com",
@@ -18,7 +18,7 @@
     "almanac",
     "fatetell"
   ],
-  "icon": "./assets/icon-512.png",
+  "icon": "./assets/icon-512-white.png",
   "documentationUrl": "https://fatetell.com/mcp/docs",
   "supportUrl": "https://fatetell.com/mcp/faq",
   "privacyPolicyUrl": "https://fatetell.com/privacyPolicy#mcp",

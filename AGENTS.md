@@ -18,10 +18,10 @@ server.json: MCP Registry entry `com.fatetell/mcp` (schema 2025-12-11, published
 assets/ (six image files; the Anthropic directory scanner holds for manual review any markdown that spells an image filename, so they are described here without extensions):
 - icon, SVG: 1024×1024 vector master of the plated icon: the designer's outline from the brand's Illustrator file (fatetell-logo-0705.pdf, page 2) on a full #F0F0F0 plate (the website's `--paper`, oklch(0.955 0 0)), 12% margin; the source grain is a bitmap, so the SVG carries a radial gradient fitted to its average shading
 - icon-1024, PNG: 1024×1024 render of the same plated icon from the Illustrator file with its grain; the Cursor form's Logotype URL
-- icon-512, PNG: 512×512 of the same plated icon; Registry `icons` and the Claude plugin `icon`
+- icon-512, PNG: 512×512 of the same plated icon; Registry `icons`
 - icon-plate-512, PNG: byte-identical copy of icon-512, kept so the Cursor `logo` path ("1:1 with background plate") stays valid
 - icon-mark-512, PNG: 512×512 transparent ink-drop mark, same framing as the website's logo image, for hosts that draw their own background
-- icon-512-white, PNG: the mark on a white plate with 8% margin; the Claude directory listing's custom icon, because the directory card draws its own frame and the grey plate read as a double frame
+- icon-512-white, PNG: the mark on a white plate with 8% margin; the Claude plugin `icon` and the connector listing's custom icon, because the directory card draws its own frame and the grey plate read as a double frame
 README.md: the page directories and reviewers read: endpoints, install per client, tool table, sign-in tiers, limits, privacy, support, registry; tool names, titles and the first sentence of each description are copied verbatim from the server repository's generated `docs/tools.md`
 LICENSE: MIT, Copyright (c) 2026 FateTell; covers this repository's files only, not the service
 .gitignore: keeps `.DS_Store`, `Thumbs.db` and `__MACOSX` out (the Anthropic portal blocks plugins that contain them), plus logs and env files
