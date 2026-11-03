@@ -1,5 +1,3 @@
-<!-- Placeholder to fill before publishing: <SECURITY_EMAIL> (proposed security@fatetell.com). -->
-
 # FateTell MCP
 
 FateTell computes; your AI interprets.
@@ -188,7 +186,7 @@ BaZi results are for reference and are not a substitute for medical, legal or fi
 ## Support and security
 
 - Support: `contact@fatetell.com`
-- Security reports: `<SECURITY_EMAIL>`. Please report vulnerabilities privately rather than in a public issue.
+- Security reports: `contact@fatetell.com` with "Security" in the subject. Please report vulnerabilities privately rather than in a public issue.
 
 ## Registry
 
