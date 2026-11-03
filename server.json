@@ -3,13 +3,19 @@
   "name": "com.fatetell/mcp",
   "title": "FateTell",
   "description": "Deterministic BaZi (Four Pillars) charts, Chinese almanac and saved FateTell charts.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "websiteUrl": "https://fatetell.com",
+  "repository": {
+    "url": "https://github.com/RussGuo/fatetell-mcp",
+    "source": "github"
+  },
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/RussGuo/fatetell-mcp/main/assets/icon-512.png",
       "mimeType": "image/png",
-      "sizes": ["512x512"]
+      "sizes": [
+        "512x512"
+      ]
     }
   ],
   "remotes": [

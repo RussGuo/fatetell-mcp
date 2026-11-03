@@ -181,8 +181,9 @@ Once your AI has a result, how it stores it (for example in your chat history) i
 
 BaZi results are for reference and are not a substitute for medical, legal or financial advice. How your AI interprets FateTell's data is the AI's own reading.
 
-- Privacy Policy: https://fatetell.com/privacyPolicy
-- Terms of Service: https://fatetell.com/terms
+- Privacy Policy: https://fatetell.com/privacyPolicy (section 8 covers connecting through MCP: https://fatetell.com/privacyPolicy#mcp)
+- Terms of Service: https://fatetell.com/terms (section 9 is the MCP service terms: https://fatetell.com/terms#mcp)
+- Documentation: https://fatetell.com/mcp/docs · Questions: https://fatetell.com/mcp/faq
 
 ## Support and security
 
@@ -223,4 +224,4 @@ FateTell 负责算对,你的 AI 负责解读。FateTell MCP 是托管的远程 M
 - **三档权限**:匿名(排盘、历法)、登录(账户、已存命盘)、会员(判定、日运、档案视角的历法、新建命盘)。OAuth 2.1 + PKCE,登录只在 FateTell 自己的页面完成。
 - **使用上限**只为防滥用,不是额度,与 App 内次数不相通;24 小时内重复的请求不重复计数。
 - **隐私**:匿名调用不落库;日志不记出生日期、时间、地名与命盘名;只有新建命盘会收出生地名,由后端解析时区与半球,本服务不存、不记。
-- 详细条款见[隐私政策](https://fatetell.com/privacyPolicy)与[服务条款](https://fatetell.com/terms)。
+- 详细条款见[隐私政策第八章](https://fatetell.com/privacyPolicy#mcp)与[服务条款第九章](https://fatetell.com/terms#mcp);文档在 https://fatetell.com/mcp/docs 。
