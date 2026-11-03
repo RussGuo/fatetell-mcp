@@ -250,13 +250,3 @@ Validate the Claude plugin with `claude plugin validate --strict .` and the Herm
 ## License
 
 The files in this repository are released under the [MIT License](LICENSE). The license covers this repository only; the FateTell service and its calculation engine are not open source.
-
-## 简体中文摘要
-
-FateTell 负责算对,你的 AI 负责解读。FateTell MCP 是托管的远程 MCP 服务器,返回确定性的八字排盘、历法与 FateTell 账户里保存的命盘;服务端不调用任何大模型,不需要下载或安装。
-
-- **两个地址**:`https://mcp.fatetell.com/mcp` 是默认地址,连接不需要账户,排盘与历法匿名可用,调用需要账户的工具时才登录,适合 Claude、Claude Code、Codex、VS Code 等;`https://mcp.fatetell.com/login/mcp` 是「连接即登录」地址,第一次请求就要求登录,给只在连接阶段处理登录的客户端:Cursor、Grok Bot、Manus。ChatGPT 用它自己的 `https://mcp.fatetell.com/chatgpt/mcp`。
-- **三档权限**:匿名(排盘、历法)、登录(账户、已存命盘)、会员(判定、日运、档案视角的历法、新建命盘)。OAuth 2.1 + PKCE,登录只在 FateTell 自己的页面完成。
-- **使用上限**只为防滥用,不是额度,与 App 内次数不相通;24 小时内重复的请求不重复计数。
-- **隐私**:匿名调用不落库;日志不记出生日期、时间、地名与命盘名;只有新建命盘会收出生地名,由后端解析时区与半球,本服务不存、不记。
-- 详细条款见[隐私政策第八章](https://fatetell.com/privacyPolicy#mcp)与[服务条款第九章](https://fatetell.com/terms#mcp);文档在 https://fatetell.com/mcp/docs 。
