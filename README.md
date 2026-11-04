@@ -1,6 +1,7 @@
 # FateTell MCP
 
 [![FateTell MCP connector on Glama](https://glama.ai/mcp/connectors/com.fatetell/mcp/badges/score.svg)](https://glama.ai/mcp/connectors/com.fatetell/mcp)
+[![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0%2Fservers%3Fsearch%3Dcom.fatetell%2Fmcp&query=%24.servers%5B0%5D.server.version&label=MCP%20Registry&prefix=v&color=4c1)](https://registry.modelcontextprotocol.io/v0/servers?search=com.fatetell/mcp)
 
 FateTell computes; your AI interprets.
 
@@ -69,7 +70,7 @@ Keep Authentication on OAuth, leave the advanced OAuth settings alone, tick the 
 
 Install FateTell from the Cursor Marketplace once it is listed; the plugin connects to the sign-in endpoint. To add it by hand, open this link and choose **Install**:
 
-[Add to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=fatetell&config=eyJ1cmwiOiJodHRwczovL21jcC5mYXRldGVsbC5jb20vbG9naW4vbWNwIn0=)
+[![Add FateTell to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=fatetell&config=eyJ1cmwiOiJodHRwczovL21jcC5mYXRldGVsbC5jb20vbG9naW4vbWNwIn0=)
 
 or add this entry to `~/.cursor/mcp.json`:
 
@@ -84,6 +85,10 @@ or add this entry to `~/.cursor/mcp.json`:
 Cursor asks you to sign in to FateTell while it connects. Cursor handles a sign-in challenge only at that stage, which is why it uses `/login/mcp` rather than the default endpoint.
 
 ### VS Code
+
+[![Install FateTell in VS Code](https://img.shields.io/badge/VS_Code-Install_FateTell-0098FF?style=flat-square&logo=visualstudiocode&logoColor=ffffff)](https://vscode.dev/redirect/mcp/install?name=fatetell&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.fatetell.com%2Fmcp%22%7D)
+
+Or from a terminal:
 
 ```sh
 code --add-mcp '{"name":"fatetell","url":"https://mcp.fatetell.com/mcp"}'
