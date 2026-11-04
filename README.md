@@ -1,5 +1,7 @@
 # FateTell MCP
 
+[![FateTell MCP connector on Glama](https://glama.ai/mcp/connectors/com.fatetell/mcp/badges/score.svg)](https://glama.ai/mcp/connectors/com.fatetell/mcp)
+
 FateTell computes; your AI interprets.
 
 FateTell MCP is a hosted remote MCP server (Streamable HTTP) that returns deterministic BaZi (Four Pillars) charts, Chinese almanac data and the charts saved in a FateTell account to any MCP client. The server calls no language model: the AI you already use reads and explains the results. There is nothing to download or run.
