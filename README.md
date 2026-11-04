@@ -4,7 +4,7 @@ FateTell computes; your AI interprets.
 
 FateTell MCP is a hosted remote MCP server (Streamable HTTP) that returns deterministic BaZi (Four Pillars) charts, Chinese almanac data and the charts saved in a FateTell account to any MCP client. The server calls no language model: the AI you already use reads and explains the results. There is nothing to download or run.
 
-This repository holds the public metadata for that server: a plugin for Claude and Claude Code, a plugin for Cursor, an Agent Plugins package for Hermes Agent, the MCP Registry entry, and the `fatetell-bazi` skill on how to read FateTell results. The server itself is not in this repository.
+This repository holds the public metadata for that server: a plugin for Claude and Claude Code, a plugin for Cursor, an Agent Plugins package for Hermes Agent, a Gemini CLI extension, the MCP Registry entry, and the `fatetell-bazi` skill on how to read FateTell results. The server itself is not in this repository.
 
 ## Endpoints
 
@@ -136,6 +136,22 @@ hermes mcp login fatetell
 
 This entry replaces the package's connector of the same name, including its trust setting, which is why it repeats `trust: untrusted`. It uses the sign-in endpoint because Hermes signs in only when the server asks while connecting; on the default endpoint `hermes mcp login` finds nothing to sign in to. Hermes stores and refreshes the tokens itself.
 
+### Gemini CLI
+
+This repository is also a Gemini CLI extension. The extension adds the connector (`/mcp`) and the `fatetell-bazi` skill. Run this in a terminal, not inside a Gemini CLI session:
+
+```sh
+gemini extensions install https://github.com/RussGuo/fatetell-mcp
+```
+
+Chart casting and the almanac work right away. For account features, sign in from inside Gemini CLI:
+
+```
+/mcp auth fatetell
+```
+
+Gemini CLI copies the extension when it installs it; `gemini extensions update fatetell` picks up later changes to this repository.
+
 ### Other MCP clients
 
 Add a remote MCP server named `fatetell` over Streamable HTTP (often called `http`) with the default endpoint, OAuth for authentication and no key or header:
@@ -240,8 +256,10 @@ MCP Registry name: `com.fatetell/mcp`. The entry is [`server.json`](server.json)
 .cursor-plugin/plugin.json        Cursor plugin manifest, connector inline: https://mcp.fatetell.com/login/mcp
 plugin.json                       Agent Plugins package manifest (Hermes Agent)
 mcp.json                          Agent Plugins connector: https://mcp.fatetell.com/mcp
-skills/fatetell-bazi/SKILL.md     reading skill, shared by all three packages
+gemini-extension.json             Gemini CLI extension manifest, connector inline: https://mcp.fatetell.com/mcp
+skills/fatetell-bazi/SKILL.md     reading skill, shared by all four packages
 server.json                       MCP Registry entry
+glama.json                        Glama listing ownership: maintainers
 assets/                           icons: SVG master and 1024 / 512 PNG on a paper-colored plate, a 512 white-plate variant for directory tiles, and a transparent 512 mark
 ```
 

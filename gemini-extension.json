@@ -1,0 +1,10 @@
+{
+  "name": "fatetell",
+  "version": "0.1.0",
+  "description": "Chinese astrology for your agent, computed by FateTell's own BaZi engine: cast a BaZi (八字, Four Pillars) chart from any birth date, open your saved charts, and check today's fortune and the almanac. Includes a skill on reading the results.",
+  "mcpServers": {
+    "fatetell": {
+      "httpUrl": "https://mcp.fatetell.com/mcp"
+    }
+  }
+}
