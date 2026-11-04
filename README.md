@@ -11,7 +11,7 @@ This repository holds the public metadata for that server: a plugin for Claude a
 | Endpoint | Behavior | Use it for |
 |---|---|---|
 | `https://mcp.fatetell.com/mcp` | Default. Connecting needs no account; chart casting and the almanac work anonymously. A tool that needs an account answers with an HTTP 401 challenge, and the client then opens FateTell's sign-in page. | Claude (web, desktop, mobile), Claude Code, Codex, VS Code, and most other clients |
-| `https://mcp.fatetell.com/login/mcp` | Sign in on connect. The first request already answers 401, so sign-in happens while the client is connecting. Every tool on this endpoint is used signed in; there is no anonymous use. | Clients that start sign-in only while connecting: Cursor, Grok Bot, Manus, and Hermes Agent's own server entry |
+| `https://mcp.fatetell.com/login/mcp` | Sign in on connect. The first request already answers 401, so sign-in happens while the client is connecting. Every tool on this endpoint is used signed in; there is no anonymous use. | Clients that start sign-in only while connecting: Cursor, Grok Bot, Manus, Gemini CLI, and Hermes Agent's own server entry |
 | `https://mcp.fatetell.com/chatgpt/mcp` | ChatGPT's own endpoint; the tools are identical, sign-in follows ChatGPT's app conventions. | ChatGPT only |
 
 The tools, their inputs and their results are the same on every endpoint. Sign-in uses OAuth 2.1; there is no key or token to configure in advance.
@@ -138,13 +138,13 @@ This entry replaces the package's connector of the same name, including its trus
 
 ### Gemini CLI
 
-This repository is also a Gemini CLI extension. The extension adds the connector (`/mcp`) and the `fatetell-bazi` skill. Run this in a terminal, not inside a Gemini CLI session:
+This repository is also a Gemini CLI extension. The extension adds the connector, on the sign-in endpoint, and the `fatetell-bazi` skill. Run this in a terminal, not inside a Gemini CLI session:
 
 ```sh
 gemini extensions install https://github.com/RussGuo/fatetell-mcp
 ```
 
-Chart casting and the almanac work right away. For account features, sign in from inside Gemini CLI:
+The first time Gemini CLI connects, it opens FateTell's sign-in page; sign in and choose **Allow**. Gemini CLI starts sign-in only while connecting, which is why the extension uses `/login/mcp` rather than the default endpoint. If no browser window opens, run this inside Gemini CLI:
 
 ```
 /mcp auth fatetell
@@ -256,7 +256,7 @@ MCP Registry name: `com.fatetell/mcp`. The entry is [`server.json`](server.json)
 .cursor-plugin/plugin.json        Cursor plugin manifest, connector inline: https://mcp.fatetell.com/login/mcp
 plugin.json                       Agent Plugins package manifest (Hermes Agent)
 mcp.json                          Agent Plugins connector: https://mcp.fatetell.com/mcp
-gemini-extension.json             Gemini CLI extension manifest, connector inline: https://mcp.fatetell.com/mcp
+gemini-extension.json             Gemini CLI extension manifest, connector inline: https://mcp.fatetell.com/login/mcp
 skills/fatetell-bazi/SKILL.md     reading skill, shared by all four packages
 server.json                       MCP Registry entry
 glama.json                        Glama listing ownership: maintainers
