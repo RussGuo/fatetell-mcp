@@ -3,9 +3,33 @@
 [![FateTell MCP connector on Glama](https://glama.ai/mcp/connectors/com.fatetell/mcp/badges/score.svg)](https://glama.ai/mcp/connectors/com.fatetell/mcp)
 [![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0%2Fservers%3Fsearch%3Dcom.fatetell%2Fmcp&query=%24.servers%5B0%5D.server.version&label=MCP%20Registry&prefix=v&color=4c1)](https://registry.modelcontextprotocol.io/v0/servers?search=com.fatetell/mcp)
 
+English · [简体中文](README.zh-CN.md)
+
 FateTell computes; your AI interprets.
 
-FateTell MCP is a hosted remote MCP server (Streamable HTTP) that returns deterministic BaZi (Four Pillars) charts, Chinese almanac data and the charts saved in a FateTell account to any MCP client. The server calls no language model: the AI you already use reads and explains the results. There is nothing to download or run.
+FateTell MCP is a hosted remote MCP server (Streamable HTTP) for BaZi (八字, Four Pillars of Destiny). It returns deterministic BaZi charts, Chinese almanac data and the charts saved in a FateTell account to Claude, ChatGPT, Cursor and any other MCP client. The server calls no language model: the AI you already use reads and explains the results. There is nothing to download or run.
+
+```
+https://mcp.fatetell.com/mcp
+```
+
+## At a glance
+
+| | |
+|---|---|
+| Type | Hosted remote MCP server, Streamable HTTP. No local install, no `npx`, no Docker. |
+| Endpoint | `https://mcp.fatetell.com/mcp` (two more for clients with their own sign-in flow, see [Endpoints](#endpoints)) |
+| Works with | Claude (web, desktop, mobile), ChatGPT, Cursor, Claude Code, Codex, VS Code, Gemini CLI, Grok Bot, Manus, Hermes Agent and other clients that speak Streamable HTTP |
+| Authentication | None for chart casting and the almanac. OAuth 2.1 for account features. No API key. |
+| Tools | 9, all deterministic: 2 anonymous, 3 signed in, 4 for members ([list](#tools)) |
+| Input | Birth date (Gregorian, or Chinese lunar with leap months), clock time, IANA time zone, gender, hemisphere; longitude only when true solar time is requested |
+| Output | Structured data: four pillars with Ten Gods, hidden stems and Na Yin, luck pillars, palaces, solar terms; every result carries its rule version |
+| Conventions | A birth from 23:00 counts toward the next day's pillar; the year changes at the Start of Spring; true solar time is off by default and applied on request; southern-hemisphere births adjust the month pillar. Each result states whether true solar time and the hemisphere adjustment were applied. |
+| Chart card | Rendered in the conversation by hosts that support MCP Apps; the skill carries a static HTML template for the others |
+| Language model | None on the server |
+| Cost | FateTell does not charge for MCP use. Member tools need a FateTell membership, the same one as in the app. |
+| Limits | Per-tool caps that only prevent abuse ([Usage limits](#usage-limits)) |
+| Docs | [fatetell.com/mcp/docs](https://fatetell.com/mcp/docs) in eight languages · [FAQ](https://fatetell.com/mcp/faq) |
 
 This repository holds the public metadata for that server: a plugin for Claude and Claude Code, a plugin for Cursor, an Agent Plugins package for Hermes Agent, a Gemini CLI extension, the MCP Registry entry, and the `fatetell-bazi` skill on how to read FateTell results. The server itself is not in this repository.
 
@@ -245,6 +269,23 @@ BaZi results are for reference and are not a substitute for medical, legal or fi
 - Terms of Service: https://fatetell.com/terms (section 9 is the MCP service terms: https://fatetell.com/terms#mcp)
 - Documentation: https://fatetell.com/mcp/docs · Questions: https://fatetell.com/mcp/faq
 
+## Questions
+
+**Is there a hosted BaZi MCP server that needs no local install?**
+Yes, this one. Add `https://mcp.fatetell.com/mcp` as a remote MCP server in Claude, ChatGPT (with its own endpoint), Cursor or another client. Nothing runs on your machine.
+
+**How is it different from a local BaZi MCP server started with `npx`?**
+A local server is a package you install and run next to your AI client, so it needs Node or Python and a desktop client. FateTell MCP runs on FateTell's servers and is reached by URL, so it also works in web and mobile clients that cannot start a local process. After sign-in it can read the charts saved in a FateTell account, which a local package cannot. The calculation engine is not open source; the rules it follows are stated in every result.
+
+**Do I need a FateTell account or an API key?**
+No account for chart casting and the almanac, and never an API key. Saved charts need a FateTell sign-in; the Day Master judgment, daily fortune, chart calendar and saving a chart need a FateTell membership.
+
+**Does the server interpret the chart?**
+No. It returns computed data only. Your AI writes the reading, and the `fatetell-bazi` skill in this repository tells it how to read the data.
+
+**Why does a chart here differ from another tool's?**
+Usually true solar time (off by default here, as in the FateTell app), the southern-hemisphere month pillar, or a missing birth time (cast at 12:00, with the hour pillar for reference only). The [FAQ](https://fatetell.com/mcp/faq) has the details.
+
 ## Support and security
 
 - Support: `contact@fatetell.com`
@@ -266,6 +307,7 @@ mcp.json                          Agent Plugins connector: https://mcp.fatetell.
 gemini-extension.json             Gemini CLI extension manifest, connector inline: https://mcp.fatetell.com/login/mcp
 skills/fatetell-bazi/SKILL.md     reading skill, shared by all four packages
 server.json                       MCP Registry entry
+README.zh-CN.md                   this README in Simplified Chinese
 glama.json                        Glama listing ownership: maintainers
 assets/                           icons: SVG master and 1024 / 512 PNG on a paper-colored plate, a 512 white-plate variant for directory tiles, and a transparent 512 mark
 ```
