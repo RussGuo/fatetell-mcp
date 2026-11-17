@@ -17,7 +17,7 @@ https://mcp.fatetell.com/mcp
 
 | | |
 |---|---|
-| 形态 | 托管的远程 MCP 服务器,Streamable HTTP。不用本地安装,不用 `npx`,不用 Docker。 |
+| 形态 | 托管的远程 MCP 服务器,Streamable HTTP。不用在本地安装或运行任何程序。 |
 | 地址 | `https://mcp.fatetell.com/mcp`(另有两个地址给登录方式不同的 AI,见[三个地址](#三个地址)) |
 | 支持的 AI | Claude(网页、桌面、手机)、ChatGPT、Cursor、Claude Code、Codex、VS Code、Gemini CLI、Grok Bot、Manus、Hermes Agent,以及其他支持 Streamable HTTP 的 MCP 客户端 |
 | 认证 | 排盘与历法不用登录;账户功能用 OAuth 2.1 登录。不需要 API Key。 |
@@ -101,6 +101,22 @@ gemini extensions install https://github.com/RussGuo/fatetell-mcp
 ```
 
 **其他 AI**:添加一个远程 MCP 服务器,传输方式选 Streamable HTTP(常写作 `http`),填通用地址,认证选 OAuth,不填密钥。如果连上后用到账户功能却不弹登录页,改用 `https://mcp.fatetell.com/login/mcp`。Grok Bot、Manus、Hermes Agent 的步骤见[英文 README](README.md#install)。
+
+**只能启动本地(stdio)服务器的 AI**:可以通过第三方开源桥接工具 [`mcp-remote`](https://github.com/geelen/mcp-remote) 连到同一个地址:
+
+```sh
+npx -y mcp-remote https://mcp.fatetell.com/mcp
+```
+
+```json
+{
+  "mcpServers": {
+    "fatetell": { "command": "npx", "args": ["-y", "mcp-remote", "https://mcp.fatetell.com/mcp"] }
+  }
+}
+```
+
+桥接工具只转发请求,所有计算仍在 FateTell 的服务器上完成。这种接法验证过不登录可用的功能;要用账户功能,建议换用能直接连接远程服务器的 AI。
 
 能执行命令或改自己 MCP 设置的 AI,也可以让它自己连:
 

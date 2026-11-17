@@ -17,7 +17,7 @@ https://mcp.fatetell.com/mcp
 
 | | |
 |---|---|
-| Type | Hosted remote MCP server, Streamable HTTP. No local install, no `npx`, no Docker. |
+| Type | Hosted remote MCP server, Streamable HTTP. Nothing to install or run locally. |
 | Endpoint | `https://mcp.fatetell.com/mcp` (two more for clients with their own sign-in flow, see [Endpoints](#endpoints)) |
 | Works with | Claude (web, desktop, mobile), ChatGPT, Cursor, Claude Code, Codex, VS Code, Gemini CLI, Grok Bot, Manus, Hermes Agent and other clients that speak Streamable HTTP |
 | Authentication | None for chart casting and the almanac. OAuth 2.1 for account features. No API key. |
@@ -192,6 +192,22 @@ https://mcp.fatetell.com/mcp
 ```
 
 If the client connects but never opens a sign-in page when an account feature is used, it is one of the clients that only signs in while connecting: use `https://mcp.fatetell.com/login/mcp` instead.
+
+A client that can only start local (stdio) servers can reach the same endpoint through [`mcp-remote`](https://github.com/geelen/mcp-remote), a third-party open-source bridge:
+
+```sh
+npx -y mcp-remote https://mcp.fatetell.com/mcp
+```
+
+```json
+{
+  "mcpServers": {
+    "fatetell": { "command": "npx", "args": ["-y", "mcp-remote", "https://mcp.fatetell.com/mcp"] }
+  }
+}
+```
+
+The bridge only relays requests; every calculation still runs on FateTell's servers. It has been checked with the tools that need no account. For account features, prefer a client that connects to remote servers itself.
 
 An agent that can run commands or edit its own MCP settings can also set itself up from [install.md](https://mcp.fatetell.com/install.md):
 
