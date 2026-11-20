@@ -62,7 +62,7 @@ https://mcp.fatetell.com/chatgpt/mcp
 **Claude Code**(连接器加 Skill):
 
 ```sh
-claude plugin marketplace add RussGuo/fatetell-mcp
+claude plugin marketplace add RussGuo/fatetell-bazi-mcp
 claude plugin install fatetell@fatetell
 ```
 
@@ -97,7 +97,7 @@ code --add-mcp '{"name":"fatetell","url":"https://mcp.fatetell.com/mcp"}'
 **Gemini CLI**(在终端里运行):
 
 ```sh
-gemini extensions install https://github.com/RussGuo/fatetell-mcp
+gemini extensions install https://github.com/RussGuo/fatetell-bazi-mcp
 ```
 
 **其他 AI**:添加一个远程 MCP 服务器,传输方式选 Streamable HTTP(常写作 `http`),填通用地址,认证选 OAuth,不填密钥。如果连上后用到账户功能却不弹登录页,改用 `https://mcp.fatetell.com/login/mcp`。Grok Bot、Manus、Hermes Agent 的步骤见[英文 README](README.md#install)。

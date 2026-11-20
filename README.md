@@ -60,7 +60,7 @@ Under Authentication choose **Sign in when needed** (Claude detects "No sign-in"
 This repository is also a Claude Code plugin marketplace. The plugin adds the connector (`/mcp`) and the `fatetell-bazi` skill:
 
 ```sh
-claude plugin marketplace add RussGuo/fatetell-mcp
+claude plugin marketplace add RussGuo/fatetell-bazi-mcp
 claude plugin install fatetell@fatetell
 ```
 
@@ -143,7 +143,7 @@ Leave the headers empty and choose **Save**; Manus starts sign-in while connecti
 This repository is also an Agent Plugins package, which Hermes Agent installs as a plugin. The package adds the connector (`/mcp`) and the `fatetell-bazi` skill; Hermes installs it disabled, so enable it afterwards:
 
 ```sh
-hermes plugins install RussGuo/fatetell-mcp --no-enable
+hermes plugins install RussGuo/fatetell-bazi-mcp --no-enable
 hermes plugins enable fatetell
 ```
 
@@ -172,7 +172,7 @@ This entry replaces the package's connector of the same name, including its trus
 This repository is also a Gemini CLI extension. The extension adds the connector, on the sign-in endpoint, and the `fatetell-bazi` skill. Run this in a terminal, not inside a Gemini CLI session:
 
 ```sh
-gemini extensions install https://github.com/RussGuo/fatetell-mcp
+gemini extensions install https://github.com/RussGuo/fatetell-bazi-mcp
 ```
 
 The first time Gemini CLI connects, it opens FateTell's sign-in page; sign in and choose **Allow**. Gemini CLI starts sign-in only while connecting, which is why the extension uses `/login/mcp` rather than the default endpoint. If no browser window opens, run this inside Gemini CLI:

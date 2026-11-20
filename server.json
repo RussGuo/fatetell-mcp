@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.fatetell/mcp",
-  "title": "FateTell",
+  "title": "FateTell BaZi MCP",
   "description": "Hosted remote MCP server for BaZi (Four Pillars) charts and the Chinese almanac. No install.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://fatetell.com",
   "repository": {
-    "url": "https://github.com/RussGuo/fatetell-mcp",
+    "url": "https://github.com/RussGuo/fatetell-bazi-mcp",
     "source": "github"
   },
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/RussGuo/fatetell-mcp/main/assets/icon-512.png",
+      "src": "https://raw.githubusercontent.com/RussGuo/fatetell-bazi-mcp/main/assets/icon-512.png",
       "mimeType": "image/png",
       "sizes": [
         "512x512"

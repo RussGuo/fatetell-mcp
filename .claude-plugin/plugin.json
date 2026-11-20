@@ -1,7 +1,7 @@
 {
   "name": "fatetell",
   "displayName": "FateTell",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Chinese astrology in Claude, computed by FateTell's own BaZi engine: cast a BaZi (八字, Four Pillars) chart from any birth date, open your saved charts, and check today's fortune and the almanac. Includes a skill on reading the results.",
   "author": {
     "name": "FateTell",
@@ -9,7 +9,7 @@
     "email": "contact@fatetell.com"
   },
   "homepage": "https://fatetell.com",
-  "repository": "https://github.com/RussGuo/fatetell-mcp",
+  "repository": "https://github.com/RussGuo/fatetell-bazi-mcp",
   "license": "MIT",
   "keywords": [
     "bazi",
