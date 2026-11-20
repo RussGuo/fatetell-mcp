@@ -1,4 +1,4 @@
-# FateTell MCP
+# FateTell BaZi MCP
 
 [![FateTell MCP connector on Glama](https://glama.ai/mcp/connectors/com.fatetell/mcp/badges/score.svg)](https://glama.ai/mcp/connectors/com.fatetell/mcp)
 [![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0%2Fservers%3Fsearch%3Dcom.fatetell%2Fmcp%26version%3Dlatest&query=%24.servers%5B0%5D.server.version&label=MCP%20Registry&prefix=v&color=4c1)](https://registry.modelcontextprotocol.io/v0/servers?search=com.fatetell/mcp&version=latest)
